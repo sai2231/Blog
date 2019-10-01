@@ -16,6 +16,13 @@
 
 @import 'normalize';
 
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {   
+  background: #AA4847;
+ }
+
 html, body {
 	font-family: 'Raleway', sans-serif;
 }
