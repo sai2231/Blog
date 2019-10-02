@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
 	def index
-	 @posts = Post.all.order('created_at DESC')
+	 @posts = Post.all
 	end
 	
 	def new
@@ -13,13 +13,13 @@ class PostsController < ApplicationController
 	end	
 
 	def create
-	  @post = Post.new(post_params)
+		@post = Post.new(post_params)
 
-	   if @post.save
-	   	  redirect_to @post
-	   	else 
-	   	  render 'new'
-	 end	   
+		if @post.save
+			redirect_to @post
+		else
+			render 'new'
+    end
 
 	end
 
@@ -47,7 +47,7 @@ class PostsController < ApplicationController
 
 	private
 	  def post_params
-	  	params.require(:post).permit(:title, :body)
+	  	params.require(:post).permit(:title, :body, :url)
 	  end
 
 
